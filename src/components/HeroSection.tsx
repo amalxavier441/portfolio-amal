@@ -101,7 +101,7 @@ const HeroSection = ({ onZoomComplete }: HeroSectionProps) => {
               I CUT
             </motion.span>
             <motion.span 
-              className="block text-primary text-glow-red"
+              className="block text-primary"
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}

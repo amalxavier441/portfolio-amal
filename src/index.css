@@ -1,20 +1,82 @@
+/* Import Space Grotesk for cinematic typography */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Space Grotesk for cinematic typography */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
 /* 
   AMAL XAVIER - VIDEO EDITOR PORTFOLIO
-  Cinematic Dark Design System
+  Cinematic Design System - Light & Dark
   Colors: Pure Black, Pure White, Blood Red
   Inspired by film editing, title sequences, VHS aesthetics
 */
 
 @layer base {
   :root {
-    /* Core Palette - Pure & Cinematic */
+    /* Light Mode - Core Palette */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Blood Red - Primary Accent */
+    --primary: 0 100% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 100% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 100% 38%;
+
+    --radius: 0.25rem;
+
+    /* Custom Tokens */
+    --blood-red: 0 100% 38%;
+    --blood-red-glow: 0 100% 45%;
+    --pure-black: 0 0% 0%;
+    --pure-white: 0 0% 100%;
+    --film-grain: 0 0% 50%;
+    --scrollbar-track: 0 0% 94%;
+    --scrollbar-thumb: 0 100% 38%;
+    --scanline-color: 0 0% 0%;
+
+    /* Shadows */
+    --shadow-blood: 0 0 60px hsl(0 100% 38% / 0.25);
+    --shadow-glow: 0 0 100px hsl(0 100% 38% / 0.2);
+
+    /* Typography */
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 0 100% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 100% 38%;
+  }
+
+  .dark {
+    /* Dark Mode - Pure & Cinematic */
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
 
@@ -24,11 +86,9 @@
     --popover: 0 0% 2%;
     --popover-foreground: 0 0% 100%;
 
-    /* Blood Red - Primary Accent */
     --primary: 0 100% 38%;
     --primary-foreground: 0 0% 100%;
 
-    /* Dark Grays for Secondary Elements */
     --secondary: 0 0% 8%;
     --secondary-foreground: 0 0% 100%;
 
@@ -45,28 +105,15 @@
     --input: 0 0% 15%;
     --ring: 0 100% 38%;
 
-    --radius: 0.25rem;
-
-    /* Custom Tokens */
-    --blood-red: 0 100% 38%;
-    --blood-red-glow: 0 100% 45%;
-    --pure-black: 0 0% 0%;
-    --pure-white: 0 0% 100%;
-    --film-grain: 0 0% 50%;
-
-    /* Shadows */
     --shadow-blood: 0 0 60px hsl(0 100% 38% / 0.4);
     --shadow-glow: 0 0 100px hsl(0 100% 38% / 0.3);
 
-    /* Typography */
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --scrollbar-track: 0 0% 0%;
+    --scrollbar-thumb: 0 100% 38%;
+    --scanline-color: 0 0% 0%;
 
-    /* Sidebar (dark variant) */
     --sidebar-background: 0 0% 2%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 0 100% 38%;
-    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 8%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 15%;
@@ -95,17 +142,17 @@
     color: hsl(var(--pure-white));
   }
 
-  /* Scrollbar styling */
+  /* Scrollbar styling - theme-aware */
   ::-webkit-scrollbar {
     width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(var(--pure-black));
+    background: hsl(var(--scrollbar-track));
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--blood-red));
+    background: hsl(var(--scrollbar-thumb));
     border-radius: 3px;
   }
 
@@ -158,7 +205,7 @@
     90% { transform: translate(1%, 1%); }
   }
 
-  /* Scanlines Effect */
+  /* Scanlines Effect - theme-aware */
   .scanlines {
     position: fixed;
     top: 0;
@@ -171,8 +218,8 @@
       0deg,
       transparent,
       transparent 2px,
-      hsl(var(--pure-black) / 0.03) 2px,
-      hsl(var(--pure-black) / 0.03) 4px
+      hsl(var(--scanline-color) / 0.03) 2px,
+      hsl(var(--scanline-color) / 0.03) 4px
     );
   }
 
